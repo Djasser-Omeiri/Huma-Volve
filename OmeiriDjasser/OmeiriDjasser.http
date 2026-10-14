@@ -1,0 +1,12 @@
+@baseUrl = https://localhost:7112
+
+GET {{baseUrl}}/api/v1.0/products
+Accept: application/json
+
+### (without version)
+GET {{baseUrl}}/api/products
+Accept: application/json
+
+### 
+GET {{baseUrl}}/api/v2.0/products
+Accept: application/json

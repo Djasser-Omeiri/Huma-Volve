@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="OmeiriDjasser/OmeiriDjasser.csproj" />
+  <Project Path="OmeiriDjasser.Application/OmeiriDjasser.Application.csproj" Id="73d0ac19-95a6-4936-8fdc-ae60722f351f" />
+  <Project Path="OmeiriDjasser.Domain/OmeiriDjasser.Domain.csproj" Id="a0f9a9a5-4157-480d-bad8-1749d8e14184" />
+  <Project Path="OmeiriDjasser.Infrastructure/OmeiriDjasser.Infrastructure.csproj" Id="96663767-13f2-4b44-a523-41b6a7069dd4" />
+  <Project Path="OmeiriDjasser/OmeiriDjasser.API.csproj" />
 </Solution>

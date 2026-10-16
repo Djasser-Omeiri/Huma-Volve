@@ -2,6 +2,7 @@
 using OmeiriDjasser.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using OmeiriDjasser.Application.Common.Interfaces;
+
 namespace OmeiriDjasser.Infrastructure.Repositories
 {
     public class ProductRepository : IProductRepository

@@ -8,8 +8,15 @@ using OmeiriDjasser.Application.Common.Behaviors;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
 

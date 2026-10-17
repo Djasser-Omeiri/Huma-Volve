@@ -2,8 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using OmeiriDjasser.Infrastructure.Data;
 using OmeiriDjasser.Application.Common.Interfaces;
 using OmeiriDjasser.Infrastructure.Repositories;
-using OmeiriDjasser.Application.Products.Commands;
-using OmeiriDjasser.Application.Products.Validators;
+using OmeiriDjasser.Application.Employees.Commands;
+using OmeiriDjasser.Application.Employees.Validators;
 using OmeiriDjasser.Application.Common.Behaviors;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -23,14 +23,14 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(options =>
    options.UseSqlServer(builder.Configuration.GetConnectionString("cs")));
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 builder.Services.AddMediatR(cfg =>
 {
-    cfg.RegisterServicesFromAssembly(typeof(CreateProductHandler).Assembly);
+    cfg.RegisterServicesFromAssembly(typeof(CreateEmployeeHandler).Assembly);
 });
 
-builder.Services.AddValidatorsFromAssembly(typeof(CreateProductValidator).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(CreateEmployeeValidator).Assembly);
 
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 

@@ -5,17 +5,20 @@ namespace OmeiriDjasser.Infrastructure.Data
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Product>(entity =>
+            modelBuilder.Entity<Employee>(entity =>
             {
-                entity.HasKey(p => p.Id);
-                entity.Property(p => p.Name).IsRequired().HasMaxLength(100);
-                entity.Property(p => p.Price).HasPrecision(18, 2);
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+                entity.Property(e => e.JobTitle).IsRequired().HasMaxLength(100);
+                entity.Property(e => e.Salary).IsRequired().HasColumnType("decimal(18,2)");
+                entity.Property(e => e.Age).IsRequired();
+                entity.ToTable("Employees");
             });
         }
     }
